@@ -42,11 +42,11 @@ function result = GA_probabilistic_AP_selection(RSRP, L, M, ...
 %   - Maintains exactly M selected APs per individual.
 %   - Uses patience-based early stopping.
 %
-% REFERENCE:   Guillermo García-Barrios, Martina Barbi and Manuel Fuentes
-%              "Genetic Algorithm-Based Optimization of AP Activation for 
-%              Static Coverage in Cell-Free," IEEE Isnternational Conference
-%              on Communications (ICC), Glasgow, Scotland, UK, 2025. 
-%              [Submitted]
+% REFERENCE:   Guillermo García-Barrios, Martina Barbi and Manuel Fuentes,
+%              "Access Point Activation for Static Area-Wide Coverage in 
+%              Cell-Free Massive MIMO Networks," 2026 Joint European 
+%              Conference on Networks and Communications & 6G Summit 
+%              (EuCNC/6G Summit), Málaga, Spain, 2026. [Submitted]
 %
 % VERSION:     1.0 (Last edited: 2025-09-19)
 % AUTHOR:      Guillermo García-Barrios, Fivecomm
@@ -123,8 +123,8 @@ for gen = 1:numGenerations
         if isempty(generation_found) && ...
                 max_fit >= required_coverage_percent
             generation_found = gen;
-            fprintf(["\n✅ Valid solution found at generation %d " ...
-                "with coverage %.2f%%\n"], gen, 100 * max_fit);
+            fprintf(['\n✅ Valid solution found at generation %d ' ...
+                'with coverage %.2f\n'], gen, 100 * max_fit);
         end
     else
         no_improvement = no_improvement + 1;
@@ -156,12 +156,16 @@ for gen = 1:numGenerations
 
 end
 
+% Get best combination APs idx
+[~, best_index] = ismember(best_solution, all_combinations, 'rows');
+
 %% -------------------- Return Results ----------------------------------
-result.best_combination  = best_solution;
+result.best_index        = best_index;
 result.best_coverage     = best_fitness;
 result.coverage_percent  = best_fitness;
 result.generations_run   = gen;
 result.generation_found  = generation_found;
+result.avg_rsrp          = avg_rsrp_history(gen);
 result.fitness_history   = fitness_history(1:gen);
 result.avg_rsrp_history  = avg_rsrp_history(1:gen);
 result.coverage_history  = coverage_history(1:gen);

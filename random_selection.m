@@ -27,13 +27,13 @@ function result = random_selection(RSRP, threshold, ...
 %   - Early stops if a combination meets the required coverage.
 %   - Coverage = fraction of UEs with RSRP ≥ threshold.
 %
-% REFERENCE:   Guillermo García-Barrios, Martina Barbi and Manuel Fuentes
-%              "Genetic Algorithm-Based Optimization of AP Activation for 
-%              Static Coverage in Cell-Free," IEEE Isnternational Conference
-%              on Communications (ICC), Glasgow, Scotland, UK, 2025. 
-%              [Submitted]
+% REFERENCE:   Guillermo García-Barrios, Martina Barbi and Manuel Fuentes,
+%              "Access Point Activation for Static Area-Wide Coverage in 
+%              Cell-Free Massive MIMO Networks," 2026 Joint European 
+%              Conference on Networks and Communications & 6G Summit 
+%              (EuCNC/6G Summit), Málaga, Spain, 2026. [Submitted]
 %
-% VERSION:     1.0 (Last edited: 2025-09-19)
+% VERSION:     1.0 (Last edited: 2025-11-10)
 % AUTHOR:      Guillermo García-Barrios, Fivecomm
 % LICENSE:     GPLv2 – If you use this code for research that results in 
 %              publications, please cite our monograph as described above.
@@ -42,9 +42,9 @@ function result = random_selection(RSRP, threshold, ...
 %% -------------------- Initialization ----------------------------------
 num_combinations = size(RSRP, 1);
 num_UEs = size(RSRP, 2);
-
 best_fitness = 0;
 best_index = 0;
+avg_rsrp = -Inf; % Initial placeholder
 
 %% -------------------- Random Search Loop ------------------------------
 for evals = 1:max_evals
@@ -59,6 +59,7 @@ for evals = 1:max_evals
     if coverage > best_fitness
         best_fitness = coverage;
         best_index = idx;
+        avg_rsrp = mean(rsrp); % Calculate average RSRP for best combo
     end
 
     % Early stopping if requirement is satisfied
@@ -71,5 +72,6 @@ end
 result.best_index       = best_index;
 result.best_fitness     = best_fitness;
 result.evaluations_used = evals;
+result.avg_rsrp         = avg_rsrp;
 
 end

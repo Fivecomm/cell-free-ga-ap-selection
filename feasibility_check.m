@@ -6,11 +6,11 @@
 %              fraction of UEs with RSRP above a threshold meets or exceeds
 %              the coverage.
 %
-% REFERENCE:   Guillermo García-Barrios, Martina Barbi and Manuel Fuentes
-%              "Genetic Algorithm-Based Optimization of AP Activation for 
-%              Static Coverage in Cell-Free," IEEE International Conference
-%              on Communications (ICC), Glasgow, Scotland, UK, 2025. 
-%              [Submitted]
+% REFERENCE:   Guillermo García-Barrios, Martina Barbi and Manuel Fuentes,
+%              "Access Point Activation for Static Area-Wide Coverage in
+%              Cell-Free Massive MIMO Networks," 2026 Joint European
+%              Conference on Networks and Communications & 6G Summit
+%              (EuCNC/6G Summit), Málaga, Spain, 2026. [Submitted]
 %
 % VERSION:     1.0 (Last edited: 2025-09-19)
 % AUTHOR:      Guillermo García-Barrios, Fivecomm
@@ -49,7 +49,7 @@ for f = 1:length(rsrp_files)
         fprintf("✅ Loaded %s with %d combinations, %d UEs.\n", ...
             filename, N_comb, N_UE);
     catch
-        warning("❌ Failed to load RSRPdBm from %s. Skipping...", filename);
+        warning("❌ Failed to load RSRPdBm from %s. Skipping...",filename);
         continue;
     end
 

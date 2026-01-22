@@ -3,11 +3,11 @@
 % DESCRIPTION: This script calculates pathloss based on channel traces
 %              generated from digital twin of the Port of Valencia.
 %
-% REFERENCE:   Guillermo García-Barrios, Martina Barbi and Manuel Fuentes
-%              "Genetic Algorithm-Based Optimization of AP Activation for 
-%              Static Coverage in Cell-Free," IEEE International Conference
-%              on Communications (ICC), Glasgow, Scotland, UK, 2025. 
-%              [Submitted]
+% REFERENCE:   Guillermo García-Barrios, Martina Barbi and Manuel Fuentes,
+%              "Access Point Activation for Static Area-Wide Coverage in 
+%              Cell-Free Massive MIMO Networks," 2026 Joint European 
+%              Conference on Networks and Communications & 6G Summit 
+%              (EuCNC/6G Summit), Málaga, Spain, 2026. [Submitted]
 %
 % VERSION:     1.0 (Last edited: 2025-09-19)
 % AUTHOR:      Guillermo García-Barrios, Fivecomm
@@ -36,8 +36,9 @@ sigma_sf = 4;    % standard deviation [dB]
 decorr   = 9;    % decorrelation distance
 
 % Paths for input data
-PATH_DATA  = fullfile('data', 'coordinates');
-PATH_UNITY = fullfile('data', 'channels');
+PATH_DATA  = fullfile('..', 'poc-aroma', 'coordinates', '70x100');
+PATH_UNITY = fullfile('..', 'poc-aroma', 'data', ...
+                      '64_APs_7000_UEs_4_antennas');
 
 % Select active APs for this scenario
 idxAPs_logical = false(64, 1);

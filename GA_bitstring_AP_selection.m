@@ -38,11 +38,11 @@ function result = GA_bitstring_AP_selection(RSRP, AP_indices, M, L, ...
 %   - GA uses elitism (keeps best solution each generation).
 %   - Crossover and mutation operators enforce exactly M active APs.
 %
-% REFERENCE:   Guillermo García-Barrios, Martina Barbi and Manuel Fuentes
-%              "Genetic Algorithm-Based Optimization of AP Activation for 
-%              Static Coverage in Cell-Free," IEEE International Conference
-%              on Communications (ICC), Glasgow, Scotland, UK, 2025. 
-%              [Submitted]
+% REFERENCE:   Guillermo García-Barrios, Martina Barbi and Manuel Fuentes,
+%              "Access Point Activation for Static Area-Wide Coverage in 
+%              Cell-Free Massive MIMO Networks," 2026 Joint European 
+%              Conference on Networks and Communications & 6G Summit 
+%              (EuCNC/6G Summit), Málaga, Spain, 2026. [Submitted]
 %
 % VERSION:     1.0 (Last edited: 2025-09-19)
 % AUTHOR:      Guillermo García-Barrios, Fivecomm
@@ -51,8 +51,10 @@ function result = GA_bitstring_AP_selection(RSRP, AP_indices, M, L, ...
 %=========================================================================%
 
 %% -------------------- Initialization ----------------------------------
-K = size(RSRP_matrix, 2);  % Number of UEs
 population = generate_initial_population(popSize, L, M);  % [popSize x L]
+
+% Precompute all possible AP combinations for indexing into RSRP
+all_combinations = nchoosek(1:L, M);
 
 best_fitness = 0;
 no_improvement = 0;
@@ -123,12 +125,16 @@ for gen = 1:numGenerations
 
 end
 
+% Get best combination APs idx
+sorted_ap = sort(find(best_solution)); % Ensure it's sorted for comparison
+[~, best_index] = ismember(sorted_ap, all_combinations, 'rows');
+
 % --- Return result ---
-result.best_AP_selection    = find(best_solution);
-result.best_fitness         = best_fitness;
-result.coverage             = best_coverage;
-result.avg_rsrp             = best_avg_rsrp;
-result.evaluations          = total_evaluations;
+result.best_index   = best_index;
+result.best_fitness = best_fitness;
+result.coverage     = best_coverage;
+result.avg_rsrp     = best_avg_rsrp;
+result.evaluations  = total_evaluations;
 
 end
 

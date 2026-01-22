@@ -23,11 +23,11 @@ function [N_PRB, OH_DL, OH_UL, Numerology, Ts] = getThParameters(BW, ...
 %   duration according to 3GPP TS 38.104. Supports both FR1 (Sub-6 GHz) 
 %   and FR2 (mmWave) operating bands.
 %
-% REFERENCE:   Guillermo García-Barrios, Martina Barbi and Manuel Fuentes
-%              "Genetic Algorithm-Based Optimization of AP Activation for 
-%              Static Coverage in Cell-Free," IEEE International Conference
-%              on Communications (ICC), Glasgow, Scotland, UK, 2025. 
-%              [Submitted]
+% REFERENCE:   Guillermo García-Barrios, Martina Barbi and Manuel Fuentes,
+%              "Access Point Activation for Static Area-Wide Coverage in 
+%              Cell-Free Massive MIMO Networks," 2026 Joint European 
+%              Conference on Networks and Communications & 6G Summit 
+%              (EuCNC/6G Summit), Málaga, Spain, 2026. [Submitted]
 %
 % VERSION:     1.0 (Last edited: 2025-09-19)
 % AUTHOR:      Guillermo García-Barrios, Fivecomm
