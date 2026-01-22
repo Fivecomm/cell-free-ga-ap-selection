@@ -59,21 +59,7 @@ As wireless networks evolve toward sixth generation (6G), energy efficiency has 
 
 # Associated dataset
 
-This repository is associated with a dataset
-
-<<<<<<< HEAD
-The dataset is available at [https://zenodo.org/records/17177328](https://zenodo.org/records/13772814)
-===============================================================
-
-The dataset is available at [https://zenodo.org/records/17177328](https://zenodo.org/records/17177328)
-
->>>>>>> be3560c352be5621099c63aed452549fc089f7d2
->>>>>>>
->>>>>>
->>>>>
->>>>
->>>
->>
+This repository is associated with a dataset which is is available at [https://zenodo.org/records/17177328](https://zenodo.org/records/17177328)
 
 **NOTE:** The downloaded files should be placed in a directory named `data/`.
 
