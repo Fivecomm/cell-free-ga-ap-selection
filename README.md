@@ -36,7 +36,7 @@ As wireless networks evolve toward sixth generation (6G), energy efficiency has 
 
 ## Usage Instructions
 
-1. **Compute Pathloss / RSRP:** 
+1. **Compute Pathloss / RSRP:**
 
    * Run `calculatePathloss.m` and `calculateRSRP.m` to generate the RSRP matrices for all AP combinations.
    * Run `calculateRSRP_AP.m` to generate per-AP RSRP matrices required by greedy and local search baselines.
@@ -44,7 +44,7 @@ As wireless networks evolve toward sixth generation (6G), energy efficiency has 
 
    * Bitstring GA: `tune_GA_bitstring.m`
    * Probabilistic GA: `tune_GA_prob.m`
-3. **Compare GA solutions:** 
+3. **Compare GA solutions:**
 
    * Run `compare_GA_solutions.m` to execute all GA algorithms across scenarios. Results are saved in the `results/` folder.
    * Run `compare_baselines_solutions.m` to execute greedy and local search baselines.
@@ -59,9 +59,21 @@ As wireless networks evolve toward sixth generation (6G), energy efficiency has 
 
 # Associated dataset
 
-This repository is associated with a dataset 
+This repository is associated with a dataset
 
+<<<<<<< HEAD
 The dataset is available at [https://zenodo.org/records/17177328](https://zenodo.org/records/13772814)
+===============================================================
+
+The dataset is available at [https://zenodo.org/records/17177328](https://zenodo.org/records/17177328)
+
+>>>>>>> be3560c352be5621099c63aed452549fc089f7d2
+>>>>>>>
+>>>>>>
+>>>>>
+>>>>
+>>>
+>>
 
 **NOTE:** The downloaded files should be placed in a directory named `data/`.
 
